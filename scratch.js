@@ -6,3 +6,7 @@ git push */
 
 
 console.log("rama".length)
+
+
+/* paste the solutions to chap 2 that he posted
+*/
