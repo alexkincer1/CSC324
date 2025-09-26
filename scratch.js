@@ -36,3 +36,100 @@ console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0));
 // reducing array
 
 console.log([1, 2, 3, 4].reduce((a, b) => a + b));
+
+
+// Chapter 6 notes
+
+let protoRabbit = {
+    speak(line) {
+        console.log('The ${this.type} rabbit says '${line}'`);
+    }
+};
+let blackRabbit = Object.create(protoRabbit);
+console.log(blackRabbit);
+blackRabbit.type = "black";
+console.log(blackRabbit);
+blackRabbit.speak("I am fear and darkness");
+console.log(blackRabbit.toString());
+
+class Rabbit {
+    constructor(type) {
+        this.type = type;
+    }
+    speak(line) {
+        console.log(`The ${this.type} rabbit. says '${line}`');
+    }
+}
+
+let killerRabbit = new Rabbit("killer");
+killerRabbit.speak("Screee!")
+let niceRabbit = new Rabbit("meek");
+niceRabbit.speak("There now...");
+
+
+let george = new Set(3, 7, 8);
+
+const mySetWithValues = new Set([1, 2, 3, 4, 5]);
+console.log(mySetWithValues);
+mySetWithValues.add(10);
+console.log(mySetWithValues);
+mySetWithValues.add(1);
+console.log(mySetWithValues);
+
+
+// static method example
+
+class GCStudent {
+    major = "";
+    greek = "";
+    favfolks = [];
+    constructor(m, g) {
+        this.major = m;
+        this.greek = g;
+    }
+    makeFriends(person) {
+        this.favfolks.push(person);
+    }
+    static makeStudent(friends) {
+        let stud = new GCStudent("undeclared", "none");
+        stud.favfolks = friends;
+        return stud;
+    }
+}
+
+let tyler = new GCStudent("art", "none");
+console.log(tyler);
+tyler.makeFriends("Jose");
+console.log(tyler);
+
+let Jose = GCStudent.makeStudent(["tyler", "Laura"]);
+console.log(Jose);
+
+
+// new - working with flattening arrays
+
+
+let arr = [[1, 5] , [[3, 7, 2] , [4, 3, 8]] , [9]];
+console.log arr.reduce((soFar, next) => soFar.concat(next));
+
+function isSimpleArray(arr) {
+    let isSimple = true;
+    for (elem of arr) {
+        if (Array.isArray(elem)) {
+            isSimple = false;
+        }
+    }
+    return isSimple;
+}
+
+let flat = false;
+let result = arr;
+while (!flat) {
+    result = result.reduce((soFar, next) => soFar.concat(next));
+    flat = isSimpleArray(result);
+}
+console.log(result)
+
+
+
+
