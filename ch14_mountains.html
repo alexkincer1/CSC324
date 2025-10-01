@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <h1>Mountains</h1>
+    <div id="mountains"></div>
+  </body>
+  <script>
+    const MOUNTAINS = [
+      {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+      {name: "Everest", height: 8848, place: "Nepal"},
+      {name: "Mount Fuji", height: 3776, place: "Japan"},
+      {name: "Vaalserberg", height: 323, place: "Netherlands"},
+      {name: "Denali", height: 6168, place: "United States"},
+      {name: "Popocatepetl", height: 5465, place: "Mexico"},
+      {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+    ];
+
+    // the main work:
+    // first, identify the element into which to place the table:
+    const target = document.getElementById("mountains");
+    const mountainTable = makeTable(MOUNTAINS);
+    target.appendChild(mountainTable);
+    
+    // utility functions:
+
+    // function to make a table from an array of objects:
+    function makeTable(arr) {
+      // create a table element:
+      const table = document.createElement("table");
+      // use first object in the array to make the header:
+      const header = makeTableHeader(arr[0]);
+      // throw on that header:
+      table.appendChild(header);
+      for (let obj of arr) {
+        // make a row element:
+        const row = makeTableRow(obj);
+        // When makeTableRow is actually written,
+        // uncomment the followimg line of code to append
+        // the row to the table:
+        table.appendChild(row);
+      }
+      // don't forget to return the table:
+      return table;
+    }
+
+    // function to make a table header:
+    function makeTableHeader(obj) {
+      // to check at console:
+      console.log(Object.keys(obj));
+      // make the row:
+      const tr = document.createElement("tr");
+      // fill it in with the th-elements:
+      for (let columnName of Object.keys(obj)) {
+        // make the th-element:
+        const th = document.createElement("th");
+        const data = columnName;
+        // put the name in the th-element:
+        th.innerText = data;
+        // add the th-element to the header-row:
+        tr.appendChild(th);
+      }
+      // don't forget to return the row:
+      return tr;
+    }
+
+    // testing our work on makeTableHeader:
+    console.log("Testing makeTableHeader:");
+    let headerRow = makeTableHeader(MOUNTAINS[0]);
+    console.log("Header row:");
+    console.log(headerRow);
+    console.log("First th-element in header row:");
+    console.log(headerRow.firstChild);
+    console.log("The text inside this th-element:");
+    console.log(headerRow.firstChild.innerText);
+
+    // function to make a table row:
+    function makeTableRow(obj) {
+      console.log(obj);
+      const row = document.createElement("tr");
+      for (let columnName of Object.keys(object)) {
+        const data = document.createElement("td");
+        console.log(obj[columnName]);
+        data.innerText = obj[columnName];
+        row.appendChild(data);
+      }
+      return row;
+    }
+
+    
+  </script>
+</html>
+
+
