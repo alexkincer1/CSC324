@@ -133,3 +133,20 @@ console.log(result)
 
 
 
+
+
+// table-sort-notes scratch
+
+// one random real number between 0 and 1:
+console.log(Math.random());
+//one random real number between 0 and 5:
+console.log(5 * Math.random());
+// one random real number between -2 and 2:
+console.log(4 * Math.random());
+// get the "floor" of a number:
+console.log(Math.floor(-2, 7));
+// a random whole number from 0 to 3:
+console.log(Math.floor(4 * Math.random()));
+// a random beast:
+const beasts = ["pig", "horse", "leopard", "minotaur", "jackal", "buffalo"];
+console.log(beasts[Math.floor(5 * Math.random())]);
