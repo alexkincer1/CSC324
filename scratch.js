@@ -150,3 +150,21 @@ console.log(Math.floor(4 * Math.random()));
 // a random beast:
 const beasts = ["pig", "horse", "leopard", "minotaur", "jackal", "buffalo"];
 console.log(beasts[Math.floor(5 * Math.random())]);
+
+//sorting a table start
+
+function makeTableRow(obj) {
+  let inner = "<tr>";
+  for (let key of Object.keys(obj)) {
+    if (key === "name") {
+      const anchorHTML = `<a href="${obj["link"]}" target="_blank">${obj["name"]}<a/>`;
+      inner += `<td>${anchorHTML}</td>`;
+    } else if (key === "link") {
+      inner += "";
+    } else {
+      inner += `<td>${obj[key]}</td>`;
+    }
+  }
+  inner += "</tr>";
+  return inner;
+}
